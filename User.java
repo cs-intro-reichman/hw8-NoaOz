@@ -102,8 +102,7 @@
     /** Checks is this user is a friend of the other user.
      *  (if two users follow each other, they are said to be "friends.") */
     public boolean isFriendOf(User other) {
-
-        if (this.follows(other.name)) {
+        if (this.follows(other.name) && other.follows(this.name)) {
             return true;
         }
         return false;
