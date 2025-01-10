@@ -91,7 +91,7 @@ public class Network {
      *  The user who appears the most in the follow lists of all the users. */
     public String mostPopularUser() {
         String mostPopular = null;
-        int maxFollow = -1;
+        int maxFollow = 0;
         for (int i = 0; i < getUserCount(); i++){
             if (followeeCount(users[i].getName()) > maxFollow) {
                 maxFollow = followeeCount(users[i].getName());
@@ -105,9 +105,8 @@ public class Network {
      *  the users in this network. Note: A name can appear 0 or 1 times in each list. */
     private int followeeCount(String name) {
         int followeeCounter = 0;
-        User currentuser = getUser(name);
         for (int i = 0; i < getUserCount(); i++){
-            if (users[i].isFriendOf(currentuser)) {
+            if (users[i].follows(name)) {
                 followeeCounter ++;
             }
         }
