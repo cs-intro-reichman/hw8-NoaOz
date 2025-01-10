@@ -59,10 +59,12 @@ public class Network {
      *  If any of the two names is not a user in this network,
      *  or if the "follows" addition failed for some reason, returns false. */
     public boolean addFollowee(String name1, String name2) {
+        if (getUser(name1) != null  && getUser(name2)!= null){
         User userfollow = getUser(name1);
         if (userfollow.addFollowee(name2) == true) {
             return true;
         }
+    }
         return false;
     }
     
