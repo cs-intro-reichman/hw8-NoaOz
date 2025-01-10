@@ -60,6 +60,10 @@
         if (this.follows(name) == true) {
             return false;
         }
+        if (this.getName().equalsIgnoreCase(name)) {
+            return false;
+        }
+        
         this.follows[this.fCount] = name;
         this.fCount++ ;
         return true;
